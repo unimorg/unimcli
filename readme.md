@@ -1,6 +1,6 @@
 # Unimcli
 
-Ａ friendly nimcli.
+Ａn user-friendly nimcli.
 
 ## Features
 
@@ -16,6 +16,22 @@
 
    nim👑 & nimble👑 => All-In-One
 
+## Examples
+
+#### install
+
+`unim install pkgname`
+
+`unim i pkgname`
+
+`unim i pkgname1 pkgname2 pkgname3`
+
+#### update
+
+#### run
+
+#### build
+
 ## Roadmap
 
 1. [x] fast git clone install
@@ -26,5 +42,23 @@
 6. [ ] build dll
 7. [ ] add other commands from nim & nimble
 8. [ ] docker auto build docker image
-9. [ ] nimist 
+9. [ ] nimist support
+
+## Contributing
+
+Any contributions are welcome, be it pull requests, code reviews, documentation improvements, bug reports, or feature requests.
+
+**We need your help:**
+
+1. ⭐More language support⭐
+
+   HOW : Add new language and improve translations in`src/unimcli/i18n/translations.cfg`
+
+2. Examples
+
+   HOW : Edit this readme,add more examples.
+
+3. Code tests
+
+   HOW : Add tests in `tests`dir
 
