@@ -1,6 +1,6 @@
 # Unimcli
 
-Ａn user-friendly nimcli.
+User-friendly nimcli.
 
 ## Features
 
@@ -10,7 +10,7 @@
 
 2. Fast
 
-   🐌clone => 🚀clone from speed up source
+   🐌clone => 🚀clone from [speed up source](https://github.com/SOVLOOKUP/nimPkg)
 
 3. Friendly
 
