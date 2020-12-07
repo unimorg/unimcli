@@ -14,8 +14,9 @@ User-friendly nimcli.
 
 3. Friendly
 
-   nim👑 & nimble👑 => All-In-One
-
+   nim👑 & nimble💍 & useful tools✨ => All-In-One
+## Install
+`nimble install unimcli`
 ## Examples
 
 #### install
@@ -43,6 +44,7 @@ User-friendly nimcli.
 7. [ ] add other commands from nim & nimble
 8. [ ] docker auto build docker image
 9. [ ] nimist support
+10. [ ] pack pack static files to binary
 
 ## Contributing
 
