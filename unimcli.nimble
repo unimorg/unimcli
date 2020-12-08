@@ -2,8 +2,8 @@
 
 version       = "0.0.1"
 author        = "sovlookup"
-description   = "An amazing nimcli."
-license       = "BSD-3-Clause"
+description   = "User-friendly nimcli."
+license       = "MIT"
 srcDir        = "src"
 installExt    = @["nim","cfg"]
 bin           = @["unimcli"]
