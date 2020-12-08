@@ -29,6 +29,10 @@ User-friendly nimcli.
 
 `unim i pkgname1 pkgname2 pkgname3`
 
+#### config
+
+choose your language：`unim config -c=lang`
+
 #### update
 
 #### run
