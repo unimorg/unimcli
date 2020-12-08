@@ -12,4 +12,5 @@ namedBin      = {"unimcli": "unim"}.toTable()
 
 # Dependencies
 
-requires "nim >= 1.4.0", "cligen >= 1.3.2", "loco >= 0.1.2", "nimble"
+requires "nim >= 1.4.0", "cligen >= 1.3.2"
+requires "nimble"
