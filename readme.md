@@ -1,5 +1,7 @@
 # Unimcli
 
+![](http://img.shields.io/badge/license-MIT-blue.svg) ![](https://raw.fastgit.org/yglukhov/nimble-tag/master/nimble.png)
+
 User-friendly nimcli.
 
 ## Features
