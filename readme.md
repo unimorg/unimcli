@@ -20,7 +20,7 @@ User-friendly nimcli.
    
 4. Extensible
 
-   add your own commands
+   add your own commands template
 
 ## Install
 `nimble install unimcli`
