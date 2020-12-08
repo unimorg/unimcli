@@ -37,9 +37,14 @@ url = "$#"""" % selectdSource
 
 proc install*(names: seq[string]) =
   ## Install nimble pkgs
+  
   checkSource()
-  if names.len > 0:
-    for name in names:
+  if names.len == 0:
+    echo "「INFO」","Use command with" & ":\n" & "unim install pkgname1,pkgname2,pkgname3"
+    return
+
+  for name in names[0].split(","):
+    try:
       doCmd(fmt"nimble install {name}")
-  else:
-    echo "「INFO」","What's the pkg you want to install?"
+    except:
+      echo "「ERROR」","nimble error"

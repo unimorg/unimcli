@@ -23,15 +23,12 @@ User-friendly nimcli.
 
 #### install
 
-`unim install pkgname`
-
-`unim i pkgname`
-
-`unim i pkgname1 pkgname2 pkgname3`
+1. install pkgs:`unim install pkgname1,pkgname2,pkgname3`
 
 #### config
 
-choose your language：`unim config -c=lang`
+1. choose your language:`unim config set lang`
+2. choose pkglist source:`unim config set source`
 
 #### update
 
@@ -42,15 +39,17 @@ choose your language：`unim config -c=lang`
 ## Roadmap
 
 1. [x] fast git clone install
-2. [ ] i18n select & rebuild tools
-3. [ ] update update nim & nimpkgs
-4. [ ] run hot-reload debug 
-5. [ ] build easy  firendly cross-compile
-6. [ ] build dll
-7. [ ] add other commands from nim & nimble
-8. [ ] docker auto build docker image
-9. [ ] nimist support
-10. [ ] pack pack static files to binary
+2. [x] i18n select & rebuild tools
+3. [ ] ask configs(language/source) when first use
+4. [ ] update update nim & nimpkgs
+5. [ ] run hot-reload debug 
+6. [ ] build easy  firendly cross-compile
+7. [ ] build dll
+8. [ ] add other commands from nim & nimble
+9. [ ] docker auto build docker image
+10. [ ] nimist support
+11. [ ] pack pack static files to binary
+12. [ ] add command yourself
 
 ## Contributing
 
