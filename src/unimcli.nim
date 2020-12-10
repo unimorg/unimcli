@@ -1,6 +1,6 @@
 import cligen
 
-import unimcli/commands/[installPkg,configs,buildRelease,runDebug,updates,cmdTemplate]
+import unimcli/commands/[installPkg,configs,buildRelease,runDebug,updates,cmdTemplate,uninstallPkg]
 import unimcli/utils/[checkSource,checkLang]
 
 proc init() =
@@ -10,6 +10,7 @@ proc init() =
 proc main*() =
   ## command list:
   ## # install
+  ## # uninstall
   ## # run
   ## # build
   ## # update
@@ -24,6 +25,7 @@ proc main*() =
 
   dispatchMulti(
     [install,help={"names":"pkgname"}],
+    [uninstall,help={"names":"pkgname"}],
     [run,help={"name":"file you to run"}],
     [build,help={"name":"file you to compile"}],
     [update],

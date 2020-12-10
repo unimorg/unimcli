@@ -30,16 +30,44 @@ User-friendly nimcli.
 
 1. install pkgs:`unim install pkgname1,pkgname2,pkgname3`
 
+#### run
+
+`unim run app.nim`  
+
+#### build
+
+use:
+
+`unim build app.nim` 
+
+instead of:
+
+ `nim c -d:release app.nim`
+
+#### mycmd
+
+**you can add command template like this:**
+
+`unim mycmd add yourcmd unim_install_$1`
+
+**use it with params:**
+
+`unim mycmd yourcmd unim` 
+
+this command is same as `unim install unim`
+
+*`mycmd` will convert `_` to space*
+
+
+
+1. create:`unim mycmd add [name] [command] [discription]`
+2. del:`unim mycmd del [name]`
+3. use:`unim mycmd [name]`
+
 #### config
 
 1. choose your language:`unim config set lang`
 2. choose pkglist source:`unim config set source`
-
-#### update
-
-#### run
-
-#### build
 
 ## Roadmap
 
