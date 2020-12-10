@@ -36,7 +36,7 @@ proc mycmd*(names:seq[string]) =
                 discription: names[3].replace("_"," ")
             )
         else:
-            echo "「ERROR」","Example" & ": unim mycmd add mycommand unim_build_$1　your_discription_here\n" & "Use" & ": unim mycmd mycommand app.nim -> unim build app.nim"
+            echo "「TIPS」","Example" & ":\n" & "unim mycmd add mycommand unim_build_$1　your_discription_here\n" & "Use" & ": unim mycmd mycommand app.nim -> unim build app.nim"
             return
         
         addCommands([
@@ -50,7 +50,7 @@ proc mycmd*(names:seq[string]) =
         of 2:
             command = Command(name:names[1])
         else:
-            echo "「ERROR」","Example" & ": unim mycmd del mycommand"
+            echo "「TIPS」","Example" & ":\n" & "unim mycmd del mycommand"
 
         delCommands([
             command
