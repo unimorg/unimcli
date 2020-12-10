@@ -31,7 +31,7 @@ proc checkSource*(reset: bool = false) =
 name = "official"
 url = "$#"""" % selectdSource
     # refresh local cache
-    doCmd("nimble refresh")
+    stdout.write doCmdEx("nimble refresh").output
 
   
   if not fileExists iniPath:
