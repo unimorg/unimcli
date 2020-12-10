@@ -9,7 +9,7 @@ proc build*(name:seq[string]) =
     
     case name.len
     of 0:
-        echo "「INFO」","Build with -d:release.\nOr define your own command template." 
+        echo "「INFO」","Build with -d:release." 
     of 1:
         doCmd(fmt"nim c -d:release {name[0]}")
     else:

@@ -3,7 +3,8 @@ import os, strutils, nimblepkg/[cli, tools], ../i18n/i18n
 nimterlingua()
 
 
-proc checkSource*() =
+proc checkSource*(reset: bool = false) =
+  ## check or reset source
   const source = [
     "https://raw.fastgit.org/SOVLOOKUP/nimPkg/main/packages.json",
     "https://raw.fastgit.org/SOVLOOKUP/nimPkg/main/packages.bak.json",
@@ -13,14 +14,11 @@ proc checkSource*() =
 
   const configPath = joinPath(getConfigDir(),"nimble")
   const iniPath = joinPath(configPath,"nimble.ini")
-
   # auto create configPath
-  if not existsOrCreateDir(configPath):
-    discard
-  
-  if not fileExists iniPath:
-    echo "「INFO」","Auto created config.ini"
+  discard existsOrCreateDir(configPath)
 
+  # select and set source
+  proc setSource() =
     # select source
     let selectdSource = promptList(dontForcePrompt,"""Select source you want:
 >> Select 1️⃣ or 2️⃣ if you are in china.
@@ -32,6 +30,15 @@ proc checkSource*() =
     f.write """[PackageList]
 name = "official"
 url = "$#"""" % selectdSource
-
     # refresh local cache
     doCmd("nimble refresh")
+
+  
+  if not fileExists iniPath:
+    echo "「INFO」","Auto created config.ini"
+    setSource()
+  else:
+    # reset if ini exist
+    if reset:
+      if prompt(dontForcePrompt,"Config already exsit , reset it?"):
+        setSource()

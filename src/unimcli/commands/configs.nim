@@ -1,69 +1,49 @@
-import os, ../i18n/i18n, nimblepkg/[cli, tools], cligen, strutils
+import ../i18n/i18n, ../utils/[checkSource,checkLang]
 
 nimterlingua()
-
-
-# get langlist in translations.cfg
-proc getLangList():seq[string] =
-    let exePath = getAppDir()
-    let lancfgPath = joinPath(exePath,"unimcli/i18n/translations.cfg")
-    let f = open(lancfgPath,fmRead);defer:f.close
-
-    for line in f.lines:
-        if "language" in line:
-            if line.startsWith("#"):
-                continue
-            result = line.split("=")[^1].strip.split(",")
-            break
-    
 
 proc setConfig(opts:seq[string]) =
     ## set configs
 
-    # lang          | cli language
-    # source        | pkglist source
-    const optList = [
-        "lang",
-        "source"
-    ]
+    const cmdList = {
+        "lang": "language of unimcli",
+        "source": "source of pkglist"
+    }
 
     if opts.len == 0:
-        echo "「INFO」","Command list" & ":\n" & $optList
+        echo "「INFO」","Command list" & ":\n"
+        for cmd in cmdList:
+            echo cmd[0] & "\t\t" & cmd[1]
         return
 
     case opts[0]
-    of optList[0]:
+    of cmdList[0][0]:
         # select language and rebuild tools
-        let lang = promptList(dontForcePrompt,"Select your language" & ":",getLangList())
-        let exeDir = getAppDir()
+        setLang()
 
-        doCmd("nim c -d:release -d:$1 -o=$2/unim $2/unimcli" % [lang,exeDir])
-        
-        echo "「INFO」","Already switch to selected language." 
-
-    of optList[1]:
-        # TODO:set source
-        discard
+    of cmdList[1][0]:
+        # reset source
+        checkSource(reset=true)
 
     else:
-        echo "「ERROR」","No config named" & " " & opts[0] & "\n" & "Options list" & ":\n" & $optList
+        echo "「ERROR」","No config named" & " " & opts[0] & "\n" & "Options list" & ":\n" & $cmdList
 
-# TODO:define in global config and ask at first use
+
 proc config*(cmd:seq[string]) =
     ## cli configs
     
-    # set          | set config
-    const cmdList = [
-        "set"       
-    ] 
+    const cmdList = {
+        "set": "set config"
+    }
     
     if cmd.len == 0:
-        echo "「INFO」","Command list" & ":\n" & $cmdList
+        echo "「INFO」","Command list" & ":\n"
+        for cmd in cmdList:
+            echo cmd[0] & "\t\t" & cmd[1]
         return
 
     case cmd[0]
-    of cmdList[0]:
-        # set config
+    of cmdList[0][0]:   ## config
         setConfig(cmd[1..^1])
 
     else:

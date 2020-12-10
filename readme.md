@@ -45,16 +45,16 @@ User-friendly nimcli.
 
 1. [x] fast git clone install
 2. [x] i18n select & rebuild tools
-3. [ ] ask configs(language/source) when first use
-4. [ ] update update nim & nimpkgs
-5. [ ] run hot-reload debug 
-6. [ ] build easy  firendly cross-compile
-7. [ ] build dll
-8. [ ] add other commands from nim & nimble
-9. [ ] docker auto build docker image
-10. [ ] nimist support
-11. [ ] pack pack static files to binary
-12. [ ] add command yourself
+3. [x] ask configs(language/source) when first use
+4. [x] add command yourself
+5. [ ] update update nim & nimpkgs
+6. [ ] run hot-reload debug 
+7. [ ] build easy  firendly cross-compile
+8. [ ] build dll
+9. [ ] add other commands from nim & nimble
+10. [ ] docker auto build docker image
+11. [ ] nimist support
+12. [ ] pack pack static files to binary
 
 ## Contributing
 
