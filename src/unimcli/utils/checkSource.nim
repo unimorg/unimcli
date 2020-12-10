@@ -26,14 +26,14 @@ proc checkSource*(reset: bool = false) =
 >> Select 4️⃣ if you want official pkg list source.""",source)
 
     # write in config.ini
-    let f = open(iniPath,fmReadWrite);defer:f.close
+    let f = open(iniPath,fmReadWrite)
     f.write """[PackageList]
 name = "official"
 url = "$#"""" % selectdSource
+    f.close
     # refresh local cache
-    stdout.write doCmdEx("nimble refresh").output
+    doCmd("nimble refresh official")
 
-  
   if not fileExists iniPath:
     echo "「INFO」","Auto created config.ini"
     setSource()
