@@ -17,6 +17,11 @@ User-friendly nimcli.
 3. Friendly
 
    nim👑 & nimble💍 & useful tools✨ => All-In-One
+   
+4. Extensible
+
+   add your own commands template
+
 ## Install
 `nimble install unimcli`
 ## Examples
