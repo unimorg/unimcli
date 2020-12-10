@@ -39,12 +39,9 @@ proc mycmd*(names:seq[string]) =
             echo "「ERROR」","Example" & ": unim mycmd add mycommand unim_build_$1　your_discription_here\n" & "Use" & ": unim mycmd mycommand app.nim -> unim build app.nim"
             return
         
-        if addCommands([
+        addCommands([
             command
-        ]):
-            echo "「SUCCESS」","$1 added!" % command.name
-        else:
-            echo "「ERROR」","Add faild."
+        ])
 
     of cmdList[1][0]:
         # del
@@ -55,12 +52,10 @@ proc mycmd*(names:seq[string]) =
         else:
             echo "「ERROR」","Example" & ": unim mycmd del mycommand"
 
-        if delCommands([
+        delCommands([
             command
-        ]):
-            echo "「SUCCESS」","$1 removed!" % command.name
-        else:
-            echo "「ERROR」","Del faild."
+        ])
+        
     else:
         # getcmd and exec
         if names.len >= 2:

@@ -20,7 +20,6 @@ proc getConfig*(mode:FileMode = fmRead): JsonNode =
     # first exec
     if not fileExists configPath:
         var f = open(configPath,fmWrite)
-        # f.write """{"settings":{"language":"$#"},"commands":{}}""" % setLang()
         f.write """{"settings":{"language":""},"commands":[]}"""
         f.close
     
@@ -37,7 +36,7 @@ iterator commands*():Command =
         yield command.to(Command)
     
 
-proc addCommands*(addCommands:openarray[Command]):bool = 
+proc addCommands*(addCommands:openarray[Command]) = 
     ## add commands to json file if unique
     var config = getConfig()
     var existNameList : seq[string]
@@ -53,13 +52,9 @@ proc addCommands*(addCommands:openarray[Command]):bool =
 
         commands.add(%* addCommand)
 
-    try:
-        writeConfig config
-        result = true
-    except:
-        result = false
+    writeConfig config
 
-proc delCommands*(delCommands:openarray[Command]):bool = 
+proc delCommands*(delCommands:openarray[Command]) = 
     ## del commands in json file if exist
     var config = getConfig()
     var existNameList : seq[string]
@@ -84,8 +79,5 @@ proc delCommands*(delCommands:openarray[Command]):bool =
             nCommandList.add(%* newCommand)
     
     config["commands"] = %* nCommandList
-    try:
-        writeConfig config
-        result = true
-    except:
-        result = false
+
+    writeConfig config
