@@ -6,7 +6,7 @@ nimterlingua()
 proc checkSource*(reset: bool = false) =
   ## check or reset source
   const source = [
-    "https://raw.fastgit.org/SOVLOOKUP/nimPkg/main/packages.json",
+    "https://raw.githubusercontent.com/SOVLOOKUP/nimPkg/main/packages.json",
     "https://raw.fastgit.org/SOVLOOKUP/nimPkg/main/packages.bak.json",
     "https://raw.fastgit.org/nim-lang/packages/master/packages.json",
     "https://raw.githubusercontent.com/nim-lang/packages/master/packages.json"
