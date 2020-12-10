@@ -1,12 +1,21 @@
-import os, ../i18n/i18n, nimblepkg/[cli, tools], cligen
+import os, ../i18n/i18n, nimblepkg/[cli, tools], cligen, strutils
 
 nimterlingua()
 
-# TODO:import from translations.cfg
-const langList = [
-    "en_US",
-    "zh_CH"
-]
+
+# get langlist in translations.cfg
+proc getLangList():seq[string] =
+    let exePath = getAppDir()
+    let lancfgPath = joinPath(exePath,"unimcli/i18n/translations.cfg")
+    let f = open(lancfgPath,fmRead);defer:f.close
+
+    for line in f.lines:
+        if "language" in line:
+            if line.startsWith("#"):
+                continue
+            result = line.split("=")[^1].strip.split(",")
+            break
+    
 
 proc setConfig(opts:seq[string]) =
     ## set configs
@@ -25,7 +34,7 @@ proc setConfig(opts:seq[string]) =
     case opts[0]
     of optList[0]:
         # select language and rebuild tools
-        let lang = promptList(dontForcePrompt,"Select your language" & ":",langList)
+        let lang = promptList(dontForcePrompt,"Select your language" & ":",getLangList())
         let exeDir = getAppDir()
 
         doCmd("nim c -d:release -d:$1 -o=$2/unim $2/unimcli" % [lang,exeDir])

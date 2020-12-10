@@ -1,8 +1,8 @@
-# TODO:update self & nim & pkgs
 import ../i18n/i18n
 
 nimterlingua()
 
+# TODO:update self & nim & pkgs
 proc update*(name:seq[string]) =
     ## run with auto-reload
 

@@ -1,7 +1,11 @@
 import cligen
 
 import unimcli/commands/[installPkg,configs,buildRelease,runDebug,updates]
+import ./unimcli/utils/[checkSource]
 
+proc init() =
+  checkSource()
+  
 proc main*() =
   ## command list:
   ## # install
@@ -20,4 +24,5 @@ proc main*() =
   )
   
 when isMainModule:
+  init()
   main()
