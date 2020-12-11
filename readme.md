@@ -84,6 +84,7 @@ this command is same as `unim install unim`
 11. [ ] nimist support
 12. [ ] pack pack static files to binary
 13. [ ] choosenim
+14. [ ] bump
 
 ## Contributing
 
