@@ -83,6 +83,7 @@ this command is same as `unim install unim`
 10. [ ] docker auto build docker image
 11. [ ] nimist support
 12. [ ] pack pack static files to binary
+13. [ ] upx support
 
 ## Contributing
 
