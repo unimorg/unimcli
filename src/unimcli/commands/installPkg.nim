@@ -7,6 +7,12 @@ proc install*(names: seq[string]) =
   
   if names.len == 0:
     echo "「INFO」","Use command with" & ":\n" & "unim install pkgname1,pkgname2,pkgname3"
+    try:
+      
+      doCmd("nimble install")
+    except:
+      discard
+      
     return
 
   for name in names[0].split(","):

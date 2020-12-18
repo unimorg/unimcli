@@ -6,12 +6,17 @@ nimterlingua()
 proc build*(name:seq[string]) =
     ## build release
     ## 
+    let outDir = ""
+    let dir = if outDir == "":outDir
+        else: "-o:" & outDir & "/"
+
     
     case name.len
     of 0:
         echo "「INFO」","Build with -d:release." 
     of 1:
-        doCmd(fmt"nim c -d:release {name[0]}")
+        doCmd(fmt"nim c -d:release {dir} {name[0]}")
     else:
-        echo "「INFO」", "TODO:build template"
+        # TODO:parse options
+        discard
         
